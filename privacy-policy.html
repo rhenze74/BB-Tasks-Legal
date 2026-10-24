@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buzzer Beater Tasks Privacy Policy</title>
+<style>
+  :root {
+    --ink: #16181d;
+    --paper: #f4f5f7;
+    --panel: #e9ebef;
+    --muted: #5b6270;
+    --line: #d7dae0;
+    --accent: #d91f26;
+    --accent-ink: #7a0f13;
+    --accent-tint: #fbe6e6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #eef0f3;
+      --paper: #101216;
+      --panel: #181b21;
+      --muted: #9aa1ad;
+      --line: #262b33;
+      --accent: #ff5a5c;
+      --accent-ink: #ffb3b4;
+      --accent-tint: #2a1416;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #eef0f3;
+    --paper: #101216;
+    --panel: #181b21;
+    --muted: #9aa1ad;
+    --line: #262b33;
+    --accent: #ff5a5c;
+    --accent-ink: #ffb3b4;
+    --accent-tint: #2a1416;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .eyebrow, .toc a, .masthead-name, nav.toc {
+    font-family: "Oswald", "Arial Narrow", "Helvetica Neue", sans-serif;
+  }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; }
+  a:hover { color: var(--accent); }
+
+  .band {
+    border-top: 3px solid var(--accent);
+    border-bottom: 1px solid var(--line);
+    background: var(--panel);
+  }
+  .masthead {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 24px 24px;
+  }
+  .masthead-name {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .masthead-name .buzzer {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-tint);
+  }
+  h1 {
+    margin: 14px 0 6px;
+    font-size: clamp(34px, 6vw, 48px);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+  .dek {
+    color: var(--muted);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 17px;
+    max-width: 56ch;
+  }
+  .meta {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: "Oswald", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .meta b { color: var(--ink); font-weight: 600; }
+
+  nav.toc {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    overflow-x: auto;
+  }
+  nav.toc a {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  nav.toc a:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 24px 30px;
+  }
+  section { padding: 30px 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; padding-top: 6px; }
+  section:target { background: var(--accent-tint); margin: 0 -16px; padding: 30px 16px; border-radius: 10px; border-top-color: transparent; }
+
+  .eyebrow {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    font-weight: 600;
+  }
+  .eyebrow .num {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  h2 {
+    margin: 6px 0 14px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+  }
+  p { margin: 0 0 14px; max-width: 64ch; }
+  p:last-child { margin-bottom: 0; }
+  ul { margin: 0 0 14px; padding-left: 22px; max-width: 62ch; }
+  li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+
+  table.storage {
+    width: 100%;
+    max-width: 64ch;
+    border-collapse: collapse;
+    margin: 4px 0 16px;
+    font-size: 15.5px;
+  }
+  table.storage th, table.storage td {
+    text-align: left;
+    padding: 9px 12px 9px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.storage th {
+    font-family: "Oswald", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .callout {
+    background: var(--panel);
+    border-left: 3px solid var(--accent);
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 15.5px;
+  }
+  .callout p { margin-bottom: 8px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  footer.band .masthead { padding-top: 22px; padding-bottom: 30px; }
+  footer p { color: var(--muted); font-size: 14px; max-width: 60ch; margin: 0 0 8px; }
+  footer .masthead-name { margin-bottom: 6px; }
+
+  @media (max-width: 520px) {
+    body { font-size: 16px; }
+    section:target { margin: 0 -12px; padding: 24px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="masthead">
+    <span class="masthead-name"><span class="buzzer"></span>Buzzer Beater Tasks</span>
+    <h1>Privacy Policy</h1>
+    <p class="dek">What this app stores, where it's kept, and who else sees it. In short: nobody else does. The app has no server.</p>
+    <div class="meta">Effective <b>October 14, 2026</b> · Applies to <b>Buzzer Beater Tasks</b> for iPhone and iPad</div>
+  </div>
+</div>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#overview">Overview</a>
+  <a href="#what-we-store">What's stored</a>
+  <a href="#where">Where it lives</a>
+  <a href="#widgets-siri">Widgets, Siri &amp; updates</a>
+  <a href="#notifications">Notifications</a>
+  <a href="#what-we-dont-do">What we don't do</a>
+  <a href="#your-control">Your control</a>
+  <a href="#children">Children</a>
+  <a href="#changes">Changes</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main>
+
+<section id="overview">
+  <div class="eyebrow"><span class="num">01</span>Overview</div>
+  <h2>There's no server, so we have nothing to collect</h2>
+  <p>Buzzer Beater Tasks is a to-do list app. It has no accounts, no sign-in and no server of ours. What you enter is kept in a private database on your iPhone or iPad. Backup copies are saved to <em>your own</em> iCloud Drive. None of it is ever sent to us, and we never see it.</p>
+  <p>This policy lists what the app stores on your device, the few ways data can leave it, and how you stay in control.</p>
+</section>
+
+<section id="what-we-store">
+  <div class="eyebrow"><span class="num">02</span>What's stored</div>
+  <h2>Only what you type in</h2>
+  <p>The app stores only the tasks and lists you create, and uses them only to run the app.</p>
+  <table class="storage">
+    <tr><th>Category</th><th>Examples</th></tr>
+    <tr><td>Tasks</td><td>Title, notes, subtasks, due date, repeat, flag, whether it's done and when</td></tr>
+    <tr><td>Reminders</td><td>Whether Remind Me is on, an early reminder, and a snoozed time</td></tr>
+    <tr><td>Lists</td><td>Names, colors and their order</td></tr>
+    <tr><td>Preferences</td><td>How tasks are sorted, whether completed tasks are shown, and which tips you've already seen</td></tr>
+  </table>
+  <p>The app doesn't read anything else on your device. It never uses your contacts, location, photos, microphone or camera, and never asks to. The only file it opens is a backup that you pick yourself with <strong>Restore from File</strong>. That file is read on your device and never uploaded anywhere.</p>
+</section>
+
+<section id="where">
+  <div class="eyebrow"><span class="num">03</span>Where it lives</div>
+  <h2>On your device, in the app's own storage</h2>
+  <p>Your tasks are stored with Apple's SwiftData framework, in storage that iOS gives only to this app and its widgets. No other app can read it. It is encrypted by your device's passcode, like any other app's data.</p>
+  <div class="callout">
+    <p><strong>A note on device backups.</strong> If iCloud Backup or a Mac backup is turned on for your device, this app's data is included like any other app's. That backup belongs to your own Apple account, and we have no access to it.</p>
+  </div>
+  <h3>Automatic backups to your iCloud Drive</h3>
+  <p>So you don't lose your tasks if you lose your phone or delete the app, the app saves a backup file each time you leave it after making changes. The file holds your tasks, subtasks and lists, and goes to a "BB Tasks" folder in your own iCloud Drive. The app keeps the 10 newest backups, plus one for each of the last 30 days that has one.</p>
+  <ul>
+    <li>The files are stored in <strong>your</strong> iCloud account, where Apple keeps them under its own privacy terms. We can't access your iCloud Drive and never receive these files.</li>
+    <li>You can see, move or delete them any time in the Files app, under iCloud Drive › BB Tasks › Backups.</li>
+    <li>If iCloud Drive isn't available, backups are kept on your device instead.</li>
+  </ul>
+</section>
+
+<section id="widgets-siri">
+  <div class="eyebrow"><span class="num">04</span>Widgets, Siri &amp; updates</div>
+  <h2>Handled by your device and Apple</h2>
+  <p><strong>Widgets</strong> show tasks from the app's own storage on your device. Checking off a task in a widget changes only that storage.</p>
+  <p><strong>Siri and Shortcuts:</strong> when you say "Add a task in BB Tasks" or run the Add Task shortcut, Apple handles what you say under Apple's own privacy policy. The app receives only the task title, list and due date, and saves them on your device. The names of your lists are shared with Siri on your device so it can recognize them. Nothing is sent to us.</p>
+  <p><strong>Update check:</strong> about once a day the app asks Apple's public App Store lookup which version of Buzzer Beater Tasks is current, so it can tell you when an update is out. The request contains only the app's identifier and your device's region, so it asks the right country's store. It contains nothing about you or your tasks, and it goes to Apple, not to us.</p>
+</section>
+
+<section id="notifications">
+  <div class="eyebrow"><span class="num">05</span>Notifications</div>
+  <h2>Scheduled on your device</h2>
+  <p>Reminders are scheduled on your device with Apple's local notifications. No push notification service is involved, and no task data is sent anywhere to deliver them. Notifications are only used if you allow them, and you can turn them off any time in Settings › Notifications › BB Tasks.</p>
+</section>
+
+<section id="what-we-dont-do">
+  <div class="eyebrow"><span class="num">06</span>What we don't do</div>
+  <h2>No tracking, no ads, no selling data</h2>
+  <ul>
+    <li>No analytics or crash-reporting tools of any kind</li>
+    <li>No advertising, and no tracking across apps or websites</li>
+    <li>No third-party services that receive your data</li>
+    <li>No selling, renting or sharing of your information. We never have it, so there's nothing to sell.</li>
+  </ul>
+</section>
+
+<section id="your-control">
+  <div class="eyebrow"><span class="num">07</span>Your control</div>
+  <h2>Deleting your data</h2>
+  <p>Deleting a task or list in the app removes it from your device. <strong>Settings › Delete All Data</strong> erases every task and list after a two-step confirmation, saving a backup to your iCloud Drive first. Deleting the app removes all of its data from your device. Backups in your iCloud Drive are kept after the app is deleted, which is what lets you restore them later. To remove those too, delete the BB Tasks folder in the Files app under iCloud Drive.</p>
+</section>
+
+<section id="children">
+  <div class="eyebrow"><span class="num">08</span>Children</div>
+  <h2>Not directed at children</h2>
+  <p>Buzzer Beater Tasks is meant for a general audience and isn't directed at children under 13. It doesn't knowingly collect information from children. As described above, it doesn't collect information from anyone.</p>
+</section>
+
+<section id="changes">
+  <div class="eyebrow"><span class="num">09</span>Changes</div>
+  <h2>If anything changes, this page changes first</h2>
+  <p>If a future version adds a feature that sends data off your device, such as syncing between devices, this policy will be updated to describe it before that version is released, and the release notes will mention it.</p>
+</section>
+
+<section id="contact">
+  <div class="eyebrow"><span class="num">10</span>Contact</div>
+  <h2>Questions</h2>
+  <p>Email <a href="mailto:support@buzzerbeaterlabs.com">support@buzzerbeaterlabs.com</a>.</p>
+</section>
+
+</main>
+
+<div class="band">
+  <footer class="masthead">
+    <span class="masthead-name"><span class="buzzer"></span>Buzzer Beater Tasks</span>
+    <p>This policy covers the Buzzer Beater Tasks app for iPhone and iPad only.</p>
+    <p>© 2026 Buzzer Beater Labs</p>
+  </footer>
+</div>
+
+</body>
+</html>

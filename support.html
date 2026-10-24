@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buzzer Beater Tasks Support</title>
+<style>
+  :root {
+    --ink: #16181d;
+    --paper: #f4f5f7;
+    --panel: #e9ebef;
+    --muted: #5b6270;
+    --line: #d7dae0;
+    --accent: #d91f26;
+    --accent-ink: #7a0f13;
+    --accent-tint: #fbe6e6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #eef0f3;
+      --paper: #101216;
+      --panel: #181b21;
+      --muted: #9aa1ad;
+      --line: #262b33;
+      --accent: #ff5a5c;
+      --accent-ink: #ffb3b4;
+      --accent-tint: #2a1416;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #eef0f3;
+    --paper: #101216;
+    --panel: #181b21;
+    --muted: #9aa1ad;
+    --line: #262b33;
+    --accent: #ff5a5c;
+    --accent-ink: #ffb3b4;
+    --accent-tint: #2a1416;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, .eyebrow, .toc a, .masthead-name, nav.toc {
+    font-family: "Oswald", "Arial Narrow", "Helvetica Neue", sans-serif;
+  }
+  a { color: var(--accent-ink); text-decoration-thickness: 1px; }
+  a:hover { color: var(--accent); }
+
+  .band {
+    border-top: 3px solid var(--accent);
+    border-bottom: 1px solid var(--line);
+    background: var(--panel);
+  }
+  .masthead {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px 24px 24px;
+  }
+  .masthead-name {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .masthead-name .buzzer {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-tint);
+  }
+  h1 {
+    margin: 14px 0 6px;
+    font-size: clamp(34px, 6vw, 48px);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+  .dek {
+    color: var(--muted);
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 17px;
+    max-width: 56ch;
+  }
+  .meta {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    font-family: "Oswald", sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .meta b { color: var(--ink); font-weight: 600; }
+
+  nav.toc {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    overflow-x: auto;
+  }
+  nav.toc a {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 12.5px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  nav.toc a:hover { border-color: var(--accent); color: var(--accent-ink); }
+
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 40px 24px 30px;
+  }
+  section { padding: 30px 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; padding-top: 6px; }
+  section:target { background: var(--accent-tint); margin: 0 -16px; padding: 30px 16px; border-radius: 10px; border-top-color: transparent; }
+
+  .eyebrow {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    font-weight: 600;
+  }
+  .eyebrow .num {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  h2 {
+    margin: 6px 0 14px;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.005em;
+  }
+  p { margin: 0 0 14px; max-width: 64ch; }
+  p:last-child { margin-bottom: 0; }
+  ul { margin: 0 0 14px; padding-left: 22px; max-width: 62ch; }
+  li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+
+  table.storage {
+    width: 100%;
+    max-width: 64ch;
+    border-collapse: collapse;
+    margin: 4px 0 16px;
+    font-size: 15.5px;
+  }
+  table.storage th, table.storage td {
+    text-align: left;
+    padding: 9px 12px 9px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  table.storage th {
+    font-family: "Oswald", sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .callout {
+    background: var(--panel);
+    border-left: 3px solid var(--accent);
+    padding: 14px 16px;
+    border-radius: 0 8px 8px 0;
+    font-size: 15.5px;
+  }
+  .callout p { margin-bottom: 8px; }
+  .callout p:last-child { margin-bottom: 0; }
+
+  footer.band .masthead { padding-top: 22px; padding-bottom: 30px; }
+  footer p { color: var(--muted); font-size: 14px; max-width: 60ch; margin: 0 0 8px; }
+  footer .masthead-name { margin-bottom: 6px; }
+
+  @media (max-width: 520px) {
+    body { font-size: 16px; }
+    section:target { margin: 0 -12px; padding: 24px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="band">
+  <div class="masthead">
+    <span class="masthead-name"><span class="buzzer"></span>Buzzer Beater Tasks</span>
+    <h1>Support</h1>
+    <p class="dek">Help with Buzzer Beater Tasks, a simple to-do list for iPhone and iPad with reminders, widgets and Siri.</p>
+    <div class="meta">Email <b><a href="mailto:support@buzzerbeaterlabs.com">support@buzzerbeaterlabs.com</a></b> · We usually reply within a couple of days</div>
+  </div>
+</div>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#contact">Contact</a>
+  <a href="#getting-started">Getting started</a>
+  <a href="#reminders">Reminders</a>
+  <a href="#widgets-siri">Widgets &amp; Siri</a>
+  <a href="#backups">Backups</a>
+  <a href="#faq">Common questions</a>
+  <a href="#requirements">Requirements</a>
+  <a href="#privacy">Privacy</a>
+</nav>
+
+<main>
+
+<section id="contact">
+  <div class="eyebrow"><span class="num">01</span>Contact</div>
+  <h2>Get in touch</h2>
+  <p>Email <a href="mailto:support@buzzerbeaterlabs.com">support@buzzerbeaterlabs.com</a>, or in the app go to <strong>••• › Settings › Contact Support</strong>. That opens an email that already includes your app version, iOS version and device model, which helps us answer faster.</p>
+  <p>If you're reporting a bug, tell us what you tapped, what you expected and what happened instead. A screenshot helps a lot.</p>
+</section>
+
+<section id="getting-started">
+  <div class="eyebrow"><span class="num">02</span>Getting started</div>
+  <h2>Add, sort and check off</h2>
+  <ul>
+    <li><strong>Add a task:</strong> type in the box at the bottom and press Done. Tap the calendar button next to it to make the task due today, tomorrow or next week.</li>
+    <li><strong>Pick a list:</strong> the row of lists at the top switches between All, Today and your own lists. A task you add goes into the list you're looking at.</li>
+    <li><strong>Check it off:</strong> tap the circle. Tap a task's title to rename it.</li>
+    <li><strong>More details:</strong> tap the ⓘ button to set a due date, reminder, repeat, notes and subtasks.</li>
+    <li><strong>Swipe:</strong> swipe left to delete, or right to flag. After a delete, tap <strong>Undo</strong> in the banner that appears.</li>
+    <li><strong>Your own order:</strong> choose <strong>••• › Sort By › My Order</strong>, then drag tasks into place.</li>
+    <li><strong>Lists:</strong> tap <strong>+</strong> at the end of the list row to add one. Press and hold a list to rename or delete it. <strong>••• › Edit Lists</strong> changes list colors and order.</li>
+  </ul>
+</section>
+
+<section id="reminders">
+  <div class="eyebrow"><span class="num">03</span>Reminders</div>
+  <h2>Notifications at the due time</h2>
+  <p>In a task's details, turn on <strong>Due Date</strong>, then <strong>Remind Me</strong>. You'll get a notification at the due time. You can also add an early reminder, from 15 minutes to a week before. From the notification, press and hold to choose <strong>Mark Done</strong> or <strong>Snooze 1 Hour</strong>.</p>
+  <ul>
+    <li><strong>Not getting reminders?</strong> Check that notifications are allowed in Settings › Notifications › BB Tasks. In the app, <strong>••• › Settings › Notification Settings</strong> takes you straight there.</li>
+    <li><strong>Repeating tasks:</strong> when you check one off, the next one is added with its own reminder.</li>
+  </ul>
+</section>
+
+<section id="widgets-siri">
+  <div class="eyebrow"><span class="num">04</span>Widgets &amp; Siri</div>
+  <h2>Check off tasks and add them without opening the app</h2>
+  <ul>
+    <li><strong>Widgets:</strong> press and hold your Home Screen, tap Edit › Add Widget, and search for BB Tasks. Tap the circle next to a task in the widget to check it off.</li>
+    <li><strong>Siri:</strong> say "Add a task in BB Tasks", or "Add a task to Work in BB Tasks" to pick a list.</li>
+    <li><strong>Shortcuts and the Action button:</strong> the <strong>Add Task</strong> action is in the Shortcuts app, and on iPhones with an Action button you can choose it there.</li>
+  </ul>
+</section>
+
+<section id="backups">
+  <div class="eyebrow"><span class="num">05</span>Backups</div>
+  <h2>Your tasks are backed up to your iCloud Drive</h2>
+  <p>Whenever you leave the app after making changes, it saves a backup to <strong>Files › iCloud Drive › BB Tasks › Backups</strong>. You can also back up yourself with <strong>••• › Backups › Back Up Now</strong>.</p>
+  <ul>
+    <li><strong>Restore:</strong> open <strong>••• › Backups</strong> and tap a backup. What you have now is backed up first, so a restore can be undone.</li>
+    <li><strong>New phone or reinstalled app:</strong> open <strong>••• › Backups</strong>. Your backups from iCloud Drive are listed there. If one isn't, tap <strong>Restore from File…</strong> and pick it in the Files app.</li>
+    <li><strong>Backups show "This Device Only"?</strong> iCloud Drive isn't available. Check that you're signed in to iCloud and that iCloud Drive is turned on in Settings › [your name] › iCloud.</li>
+  </ul>
+</section>
+
+<section id="faq">
+  <div class="eyebrow"><span class="num">06</span>Common questions</div>
+  <h2>Quick answers</h2>
+  <p><strong>Do I need an account?</strong> No. There's no sign-up and no server. Everything stays on your device and in your own iCloud Drive.</p>
+  <p><strong>Do my tasks sync between my iPhone and iPad?</strong> Not yet. Each device keeps its own tasks. To copy your tasks to another device, restore your latest backup on it.</p>
+  <p><strong>What does Today show?</strong> Tasks due today, overdue tasks, and the ones you finished today.</p>
+  <p><strong>How do I search?</strong> Tap the magnifying glass. Search covers every list, including notes and subtasks.</p>
+  <p><strong>How do I clear finished tasks?</strong> Tap <strong>Clear</strong> next to the Completed heading. You can also tap <strong>Hide</strong> to keep them out of sight.</p>
+</section>
+
+<section id="requirements">
+  <div class="eyebrow"><span class="num">07</span>Requirements</div>
+  <h2>What you need</h2>
+  <ul>
+    <li>iPhone or iPad with iOS or iPadOS 26.5 or later</li>
+  </ul>
+</section>
+
+<section id="privacy">
+  <div class="eyebrow"><span class="num">08</span>Privacy</div>
+  <h2>Nothing is collected</h2>
+  <p>No accounts, no analytics, no tracking. Read the full <a href="privacy-policy.html">Privacy Policy</a>.</p>
+</section>
+
+</main>
+
+<div class="band">
+  <footer class="masthead">
+    <span class="masthead-name"><span class="buzzer"></span>Buzzer Beater Tasks</span>
+    <p>Support for the Buzzer Beater Tasks app for iPhone and iPad.</p>
+    <p>© 2026 Buzzer Beater Labs</p>
+  </footer>
+</div>
+
+</body>
+</html>
